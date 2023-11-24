@@ -1,0 +1,27 @@
+<h1>Registrarse</h1>
+
+<form action="/api/auth/signup" method="POST">
+
+    <div class="mb-3">
+        <label for="name" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Nombre">
+    </div>
+
+    <div class="mb-3">
+        <label for="email" class="form-label">Correo electrónico</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+    </div>
+
+    <div class="mb-3">
+        <label for="password" class="form-label">Contraseña</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña">
+    </div>
+
+    <div class="mb-3">
+        <label for="confirm_password" class="form-label">Confirmar contraseña</label>
+        <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Confirmar contraseña">
+    </div>
+
+    <button class="btn btn-success">Confirmar registro</button>
+
+</form>

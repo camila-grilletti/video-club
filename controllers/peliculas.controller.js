@@ -1,9 +1,24 @@
 import modelo from '../models/peliculas.model.js';
 
-const listarPeliculas = async (req, res) => {
+const listadoPublico = async (req, res) => {
     try {
         const peliculas = await modelo.obtenerTodasLasPeliculas();
         const data = { peliculas };
+        res.status(200).render('public', data);
+    } catch (error) {
+        console.log(`[listadoPublico]: Error listando peliculas ${error}`);
+        res.status(500).send({ mensaje: `[listadoPublico]: Error listando peliculas ${error}` });
+    }
+};
+
+const listarPeliculas = async (req, res) => {
+
+    const user = req.user?.name;
+    const email = req.user?.email;
+
+    try {
+        const peliculas = await modelo.obtenerTodasLasPeliculas();
+        const data = { peliculas, user, email };
         res.status(200).render('index', data);
     } catch (error) {
         console.log(`[listarPeliculas]: Error listando peliculas ${error}`);
@@ -87,5 +102,6 @@ export default {
     crearPelicula,
     formularioEdicionPelicula,
     actualizarPelicula,
-    eliminarPelicula
+    eliminarPelicula,
+    listadoPublico
 }
