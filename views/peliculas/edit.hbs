@@ -1,8 +1,9 @@
-<h2>Editar película</h2>
-<hr>
-<form action="/api/peliculas/{{pelicula._id}}?_method=PUT" method="post">
+<div class="d-flex align-items-center py-4 bg-body-tertiary">
+    <div class="form-signin w-50 m-auto">
+        <form action="/api/peliculas/{{pelicula._id}}?_method=PUT" method="post" style="display: flex; flex-direction: column;">
+            <h1 class="h3 mb-1 fw-normal">Editar película</h1>
 
-    <div>
+            <div>
         <label for="lbl-title" class="form-label"></label>
         <input type="text" class="form-control" id="lbl-title" name="title" value="{{pelicula.title}}" placeholder="Ingrese el nombre de la película">
     </div>
@@ -11,6 +12,7 @@
         <input type="text" class="form-control" id="lbl-year" name="year" value="{{pelicula.year}}" placeholder="Ingrese el año de la película">
     </div>
 
-    <button class="btn btn-success mt-5">Editar película</button>
-
-</form>
+            <button class="btn btn-success w-100 py-2 mt-4" type="submit">Editar</button>
+        </form>
+    </div>
+</div>

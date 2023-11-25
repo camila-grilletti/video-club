@@ -12,6 +12,7 @@ import MongoStore from 'connect-mongo';
 import passport from 'passport';
 import session from 'express-session';
 import routerPublic from './routers/public.router.js';
+import auth from './middlewares/usuarios.middleware.js';
 
 // ! Configuraciones
 const PORT = process.env.PORT || 8888;
@@ -48,6 +49,11 @@ app.use(passport.session());
 app.use('/', routerPublic);
 app.use('/api/peliculas', routerPeliculas);
 app.use('/api/auth', routerUsuarios);
+app.use('*', auth.isLogged, (req, res) => {
+    res.render('404', { user: res.locals.user });
+});
+
+// TODO: Ruta para todos con error 404
 
 // ! Conexión a BD
 mongoose.connect(process.env.URI_DB_REMOTA)

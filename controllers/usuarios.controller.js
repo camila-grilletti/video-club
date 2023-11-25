@@ -56,7 +56,7 @@ const logout = (req, res, next) => {
         if (err) return next(err);
         res.redirect('/api/auth/signin');
     });
-    res.send('Salió de la aplicación')
+    res.redirect('/');
 };
 
 

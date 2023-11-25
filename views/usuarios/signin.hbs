@@ -1,17 +1,19 @@
-<h1>Logueo</h1>
+<div class="d-flex align-items-center py-4 bg-body-tertiary">
+    <div class="form-signin w-50 m-auto">
+        <form action="/api/auth/signin" method="POST" style="display: flex; flex-direction: column; gap: 1em;">
+            <h1 class="h3 mb-3 fw-normal">Iniciar sesión</h1>
 
-<form action="/api/auth/signin" method="POST">
+            <div class="form-floating">
+                <input type="email" id="email" name="email" class="form-control" placeholder="name@example.com">
+                <label for="floatingInput">Correo electrónico</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                <label for="floatingPassword">Contraseña</label>
+            </div>
 
-    <div class="mb-3">
-        <label for="email" class="form-label">Correo electrónico</label>
-        <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+            <button class="btn btn-primary w-100 py-2" type="submit">Ingresar</button>
+            <p class="mt-5 mb-3 text-body-secondary">&copy; Camila Grilletti 2023</p>
+        </form>
     </div>
-
-    <div class="mb-3">
-        <label for="password" class="form-label">Contraseña</label>
-        <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña">
-    </div>
-
-    <button class="btn btn-success">Ingresar</button>
-
-</form>
+</div>

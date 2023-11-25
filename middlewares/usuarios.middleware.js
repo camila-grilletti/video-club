@@ -6,4 +6,13 @@ const isAuthenticated = (req, res, next) => {
     res.redirect('/api/auth/signin');
 }
 
-export default isAuthenticated;
+const isLogged = (req, res, next) => {
+    const user = req.user?.name;
+    res.locals.user = user;
+    return next();
+};
+
+export default {
+    isAuthenticated,
+    isLogged
+};

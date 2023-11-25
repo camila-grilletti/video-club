@@ -46,7 +46,7 @@ const crearPelicula = async (req, res) => {
         res.status(500).send({ mensaje: `[crearPelicula]: Error al crear pelicula ${error}` });
     }
 
-    res.status(201).render('peliculas/show', { pelicula: JSON.parse(JSON.stringify(peliculaCreada)) } );
+    res.status(201).redirect('/api/peliculas');
 };
 
 const formularioEdicionPelicula = async (req, res) => {
